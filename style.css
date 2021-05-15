@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+*,
+*::before
+*::after{
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+body{
+    height: 100 vh ;
+    padding: 35px;
+    
+    background: rgb(243, 243, 243) ;
+    color: #131313;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    margin:  40px 0;
+    font-weight: 900;
+    font-size: 28px;
+    text-align: center;
+}
+
+
+input{
+    transition: 0.5s ease-in-out;
+    margin: 15px 0;
+    font-size: 18px;
+    padding: 5px;
+    background: rgb(16 239 197); ;
+    border: none;
+}
+
+.btn-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:  10%;
+    margin:  35px 0;
+}
+
+button{
+    margin: 5px 0;
+    padding:  10px;
+    border: none;
+    font-size: 18px;
+    transition: 0.5s ease-in-out;
+}
+
+form{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width:  370px;
+    margin:  5 auto;
+}
+
+form button{
+    background: rgb(225, 25, 140);
+    width: 100%;
+    margin: 5px 0;
+    color: white;
+}
+
+.start{
+    background: rgb(48, 38, 253);
+    color: white;
+}
+
+.stop{
+    background: rgba(218, 65, 5, 0.904);
+    color:white;
+}
+
+.reseat{
+    background: rgb(209, 86, 15);
+    color:white;
+}
+
+.break{
+    background: rgba(10, 252, 83,);
+    color:white;
+}
+.resume{
+    background: rgba(140, 50, 231, 0.596);
+    color:white;
+}
+
+.clock{
+    padding: 3px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size:  24px;
+}
+
+.progres-ring{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.progres-ring-circle{
+    transition: 0.5s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: rgb(51, 65, 255);
+}
+
+.danger{
+    stroke: rgba(218,17, 28,);
+    animation: pulse 0.9 ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%,
+    100%{
+        transform:rotate(-90deg) scale(1)
+    }
+    50%{
+        transform:rotate(-90deg) scale(1.05)
+    }
+    75%{
+        transform:rotate(-90deg) scale(0.8)
+    }
+}
+
+@media screen and (min-width: 760px) {
+    body{
+        display: grid;
+        grid-template-areas: 
+        "head head "
+        "clock form"
+        "btns ji";
+    }
+    .btn-group{
+        grid-area: btns;
+        justify-content: center;
+    }
+
+    .clock{
+        grid-area: clock;
+        height: 100%;
+    }
+
+    h1{
+        grid-area: head;
+
+        align-self: center;
+    }
+
+    form{
+        align-self: center;
+        justify-self: center;
+        grid-area: form;
+        width: 50%;
+        justify-content: space-around;
+    }
+}
